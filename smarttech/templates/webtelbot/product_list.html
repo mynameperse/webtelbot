@@ -1,0 +1,16 @@
+{% extends 'webtelbot/index.html' %}
+
+{% block content %}
+
+    <h2>ТОВАРЫ</h2>
+    <ul>
+        {% for product in products %}
+            <li>
+                <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
+            </li>
+        {% empty %}
+            <li>Товары не найдены.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
