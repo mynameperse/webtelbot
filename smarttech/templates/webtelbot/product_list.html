@@ -1,19 +1,78 @@
-{% extends 'webtelbot/index.html' %}
-{% load static %}
+{% extends 'webtelbot/index.html' %} {% load static %} {% block title %}
+<h2>ТОВАРЫ</h2>
+{% endblock %} {% block content %}
+<style>
+	a.product-card {
+		box-shadow: 0px 8px 16px 0px rgba(17, 17, 17, 0.04);
+		border: 1px solid whitesmoke;
+		border-radius: 1.6rem !important;
+		text-decoration: none !important;
+		overflow: hidden;
+		padding: 0.8rem;
+	}
+	a.product-card:active {
+		box-shadow: none;
+		background-color: #fafafa;
+	}
+	a.product-card img {
+		height: 20rem;
+		border-radius: 1.6rem !important;
+		margin-bottom: 2rem;
+		object-fit: contain;
+		background: linear-gradient(180deg, #eee 0%, #f1f1f1 100%);
+	}
+	a.product-card .card-body {
+		padding: 0 1.6rem 1.6rem 1.6rem;
+	}
+	a.product-card .card-title {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-size: 2rem;
+		font-style: normal;
+		font-weight: 600;
+		margin-bottom: 0.8rem;
+	}
+	a.product-card .card-title .price {
+		background-color: #4c6fff;
+		padding: 0.4rem 0.8rem;
+		color: #fff;
+		border-radius: 1rem;
+		font-size: 1.4rem;
+	}
+	a.product-card .card-text {
+		font-size: 1.4rem;
+		font-style: normal;
+		font-weight: 400;
+		width: 100%;
+		text-overflow: ellipsis;
+		white-space: break-spaces;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		color: #878787;
+	}
+</style>
 
-{% block content %}
-    <div class="alert alert-primary" role="alert">
-              A simple primary alert—check it out!
-    </div>
-    <h2>ТОВАРЫ</h2>
-    <ul>
-        {% for product in products %}
-            <li>
-                <a href="{% url 'product_detail' product.id %}">{{ product.name }} {{ prodcuts}}</a>
-            </li>
-        {% empty %}
-            <li>Товары не найдены.</li>
-        {% endfor %}
-    </ul>
+<div class="container-full">
+	<div class="row">
+		{% for product in products %}
+		<div class="col-4">
+			<a class="card product-card w-100" href="{% url 'product_detail' product.id %}">
+				<img src="{{ product.image1.url }}" class="card-img-top" />
+				<div class="card-body">
+					<h5 class="card-title">
+						<div class="name">{{ product.name }}</div>
+						<div class="price">${{ product.price }}</div>
+					</h5>
+					<p class="card-text text-truncate">{{product.description}}</p>
+				</div>
+			</a>
+		</div>
+
+		{% endfor %}
+	</div>
+</div>
 
 {% endblock %}
