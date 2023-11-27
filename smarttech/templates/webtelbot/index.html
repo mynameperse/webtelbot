@@ -1,27 +1,23 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<title>SMART-TECH</title>
-	</head>
-	<body>
-		<style>
-			.container {
-				padding: 24px;
-			}
-			.container h5 {
-				color: rebeccapurple;
-			}
-			.container .container-content {
-				color: rgb(67, 67, 67);
-				border-radius: 4px;
-				background-color: whitesmoke;
-				margin-top: 8px;
-			}
-		</style>
-		<div class="container">
-			<h5>Добро пожаловать в магазин компьютерные комплектующие!</h2>
-			<div class="container-content">{% block content %} {% endblock %}</div>
-		</div>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <title>SMART-TECH</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div>
+        <h2><a style="text-decoration: none; color: #232323" href="{% url 'product_list' %}">Добро пожаловать в магазин компьютерные комплектующие!</a></h2>
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+    <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+</body>
 </html>

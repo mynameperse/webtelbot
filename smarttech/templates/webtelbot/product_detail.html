@@ -1,24 +1,12 @@
-{% extends 'webtelbot/index.html' %} {% block content %}
-<style>
-	.container {
-		padding: 24px;
-	}
-	.container h2 {
-		color: rebeccapurple;
-	}
-	.container .container-content {
-		color: rgb(67, 67, 67);
-		border-radius: 4px;
-		background-color: whitesmoke;
-		margin-top: 8px;
-	}
-</style>
+{% extends 'webtelbot/index.html' %}
 
-<h2>{{ product.name }}</h2>
-<p>Price: {{ product.price }}</p>
-<p>{{ product.description }}</p>
-<img src="{{ product.image1.url }}" alt="{{ product.name }}" width="200" />
-<img src="{{ product.image2.url }}" alt="{{ product.name }}" width="200" />
-<img src="{{ product.image3.url }}" alt="{{ product.name }}" width="200" />
+{% block content %}
+
+    <h2>{{ product.name }}</h2>
+    <p>Price: {{ product.price }}</p>
+    <p>{{ product.description }}</p>
+    <img src="{{ product.image1.url }}" alt="{{ product.name }}" width="200">
+    <img src="{{ product.image2.url }}" alt="{{ product.name }}" width="200">
+    <img src="{{ product.image3.url }}" alt="{{ product.name }}" width="200">
 
 {% endblock %}

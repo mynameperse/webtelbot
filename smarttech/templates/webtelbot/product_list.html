@@ -1,12 +1,15 @@
 {% extends 'webtelbot/index.html' %}
+{% load static %}
 
 {% block content %}
-
+    <div class="alert alert-primary" role="alert">
+              A simple primary alert—check it out!
+    </div>
     <h2>ТОВАРЫ</h2>
     <ul>
         {% for product in products %}
             <li>
-                <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
+                <a href="{% url 'product_detail' product.id %}">{{ product.name }} {{ prodcuts}}</a>
             </li>
         {% empty %}
             <li>Товары не найдены.</li>
